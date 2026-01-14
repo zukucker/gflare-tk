@@ -39,6 +39,7 @@ class Defaults:
         'page_title',
         'meta_description',
         'h1',
+        'h2',
         'unique_inlinks',
         'respect_nofollow',
         'canonicals',
@@ -72,6 +73,9 @@ class Defaults:
         'Bingbot Desktop': 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
         'Bingbot Mobile': 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Mobile Safari/537.36 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)'
     }
+    highlight_settings = [
+        'h1'
+    ]
 
     settings = {
         'MODE': 'Spider',
@@ -81,7 +85,8 @@ class Defaults:
         'UA_SHORT': 'Greenflare',
         'MAX_RETRIES': 3,
         'CRAWL_ITEMS': crawl_items,
-        'EXTRACTION_SEPARATOR': ' | '
+        'EXTRACTION_SEPARATOR': ' | ',
+        'HIGHLIGHT': highlight_settings,
     }
 
     display_columns = [
