@@ -114,6 +114,8 @@ class CrawlTab(ttk.Frame):
             self.bottom_frame, textvariable=self.urls_crawled_string_var)
         self.label_urls_crawled.pack(side=RIGHT)
 
+        self.treeview_table.tag_configure('error', background="red")
+
         self.percentage = 0
 
         self.populate_columns()
@@ -279,21 +281,24 @@ class CrawlTab(ttk.Frame):
         else:
             return
         
+    def hasHighlight(self) -> bool:
+        highlight_settings = self.crawler.settings.get('HIGHLIGHT')
+        if 'highlight_missing_h1' in highlight_settings:
+            return True
+        else:
+            return False
+
     def add_item_to_outputtable(self, item):
         tag = False
-
         if item[4] == '':
             tag = True
-
-        if tag:
+        if tag and self.hasHighlight():
             self.treeview_table.insert(
                 '', 'end', text=self.row_counter, values=item, tags=("error")
             )
         else:
             self.treeview_table.insert(
                 '', 'end', text=self.row_counter, values=item)
-
-        self.treeview_table.tag_configure('error', background="red")
         with self.lock:
             self.row_counter += 1
 
