@@ -24,7 +24,7 @@ target = Executable(
     script='greenflare/app.py',
     base=base,
     icon='greenflare/resources/greenflare-icon-32x32.ico',
-    targetName=targetName
+    target_name=targetName
 )
 
 setup(name='Greenflare SEO Crawler',

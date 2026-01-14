@@ -1,4 +1,5 @@
 __pycache__
+.venv/
 *.csv
 *.db
 *.db-journal
@@ -7,3 +8,4 @@ __pycache__
 build/
 dist/
 Output/
+gen.sh
