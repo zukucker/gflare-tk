@@ -280,8 +280,20 @@ class CrawlTab(ttk.Frame):
             return
         
     def add_item_to_outputtable(self, item):
-        self.treeview_table.insert(
-            '', 'end', text=self.row_counter, values=item)
+        tag = False
+
+        if item[4] == '':
+            tag = True
+
+        if tag:
+            self.treeview_table.insert(
+                '', 'end', text=self.row_counter, values=item, tags=("error")
+            )
+        else:
+            self.treeview_table.insert(
+                '', 'end', text=self.row_counter, values=item)
+
+        self.treeview_table.tag_configure('error', background="red")
         with self.lock:
             self.row_counter += 1
 
