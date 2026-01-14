@@ -177,6 +177,10 @@ class SettingsTab(ttk.Frame):
                                                   'Page Title', 'Meta Description', 'H1', 'H2'], self.crawler.settings, 'CRAWL_ITEMS')
         self.checkboxgroup_onpage.pack(**self.group_args)
 
+        self.checkoboxgroup_highlight = CheckboxGroup(self.frame_second, 'Highlight', [
+                                                   'Highlight missing H1'], self.crawler.settings, 'HIGHLIGHT')
+        self.checkoboxgroup_highlight.pack(**self.group_args)
+
         # Links Group
         self.checkboxgroup_links = CheckboxGroup(self.frame_second, 'Links', [
             'Canonicals', 'Pagination', 'Hreflang', 'External Links'], self.crawler.settings, 'CRAWL_ITEMS')
